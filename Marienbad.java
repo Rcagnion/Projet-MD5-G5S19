@@ -77,7 +77,7 @@ public class Marienbad {
                 int input;
                 System.out.println(j.getNom());
                 System.out.println("Que voulez vous faire?\n"
-                + "1: selectionner un nombre d'alumette | 2: Quitter le jeu");
+                + "1: selectionner un nombre d'allumette | 2: Quitter le jeu");
                 String rawInput=sc.next(); 
                 if(rawInput.length()!=1 || !Character.isDigit(rawInput.charAt(0))) input=-1;
                 else input=Integer.parseInt(rawInput);
