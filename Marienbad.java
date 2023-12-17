@@ -159,8 +159,8 @@ public class Marienbad {
         int[] t2 = new int[3];
         //premiere colonne
 	int a = b[2]/100;
-	int b = b[3]/100;
-        t2[0]= a+b;
+	int c = b[3]/100;
+        t2[0]= a+c;
 	    
         //deuxieme colonne
         int x=b[1]/10;
