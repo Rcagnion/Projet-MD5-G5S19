@@ -10,11 +10,11 @@ public class Marienbad {
 
     //constructeur
     public Marienbad(){
-		sc=new Scanner(System.in);
-		plateau=new Plateau();
+	sc=new Scanner(System.in);
+	plateau=new Plateau();
         joueurs =new Joueur[2];
         nba = 16;
-		System.out.println("Quel est le nom du joueur ?");
+	System.out.println("Quel est le nom du joueur ?");
         String nom=sc.next();
         joueurs[0]=new Joueur(nom, 0);
         joueurs[1]=new Ia("Ia",1);
@@ -33,24 +33,28 @@ public class Marienbad {
                 int[] tmp = new int[4];
                  x = 0;
                  y = 1;
+		 int cpt = 0;
                 
                 while((!stratGagnante && x<plateau.alu.length)){
                     for(int i =0;i<plateau.alu.length;i++){
                         tmp[i] = plateau.alu[i];
+			    cpt++;
                     }
                     while((!stratGagnante && y<=plateau.alu[x])){
                         for(int i =0;i<plateau.alu.length;i++){
                             tmp[i] = plateau.alu[i];
+				cpt++;
                         }
                         tmp[x] -= y;
                         stratGagnante=convBinairePair(tmp);
-                        if(stratGagnante==true){
+                        if(stratGagnante){
                             resVar[0]=x;
                             resVar[1] =y;
                         }
                         y++;
                     }
                     x++;
+		    cpt=0;
                     y=1;
             }
             if (resVar[1] == 0){
@@ -116,7 +120,7 @@ public class Marienbad {
     public void partieNormaleJdeb() {
             while(nba != 0) {
                  this.tourDeJeu(joueurs[1],plateau.nbAllumette(plateau.alu));
-            //A la fin du tour, on passe au joueur suivant :)
+            
             
              }
         }
@@ -154,8 +158,10 @@ public class Marienbad {
 
         int[] t2 = new int[3];
         //premiere colonne
-        t2[0]= (b[2]/100)+(b[3]/100);
-
+	int a = b[2]/100;
+	int b = b[3]/100;
+        t2[0]= a+b;
+	    
         //deuxieme colonne
         int x=b[1]/10;
         for (int i=2; i<b.length; i++){
@@ -166,11 +172,10 @@ public class Marienbad {
             x += tmp;
         }
         t2[1]=x;
-
         //troisieme colonne
         int y=0;
-        for(int k=0;k<b.length;k++){
-            y += b[k]%2;
+        for(int j=0;j<b.length;j++){
+            y += b[j]%2;
         }
         t2[2]=y;
 
