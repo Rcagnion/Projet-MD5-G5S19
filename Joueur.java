@@ -1,4 +1,4 @@
-
+//ID G5S19
 import java.util.Scanner;
 public class Joueur {
 	private String nom;
