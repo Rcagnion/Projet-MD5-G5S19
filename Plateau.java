@@ -1,4 +1,4 @@
-
+//ID G5S19
 public class Plateau {
     int[] alu ={1,3,5,7};
 
